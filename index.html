@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Next Chapter: Kanchan & [Your Name]</title>
+    <title>The Adventure Begins | Kanchan & [Your Name]</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom Font Setup */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0fdfa; /* Very light Cyan/Teal background */
+            /* Subtle gradient background for elegance */
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); 
         }
-        /* Custom Primary Color: Teal/Cyan for vibrancy and contrast */
+        /* Custom Primary Color: Teal/Cyan */
         .text-primary {
             color: #0d9488; 
         }
@@ -30,72 +31,73 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
 
-    <div class="w-full max-w-2xl bg-white shadow-2xl rounded-3xl overflow-hidden md:flex transition duration-500 ease-in-out transform hover:scale-[1.01]">
+    <div class="w-full max-w-xl bg-white shadow-2xl rounded-3xl p-8 md:p-12 text-center transition duration-700 ease-in-out transform hover:shadow-3xl hover:scale-[1.01]">
         
-        <div class="md:w-1/2 flex items-center justify-center p-6 bg-teal-50/70 order-1 md:order-none"> 
+        <div class="mb-8"> 
             <img 
                 src="kanchan.png" 
                 alt="Beautiful portrait of Kanchan" 
-                class="w-full h-auto max-h-[80vh] object-contain rounded-xl shadow-lg transition-transform duration-500 hover:scale-[1.02]"
-                onerror="this.onerror=null;this.src='https://placehold.co/400x600/ccfbf1/0d9488?text=Image+Loading+Error';"
+                class="w-48 h-48 md:w-64 md:h-64 object-cover mx-auto rounded-full border-4 border-teal-200 shadow-xl transition-transform duration-500 hover:scale-105"
+                onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccfbf1/0d9488?text=Image+Loading+Error';"
             >
         </div>
+        
+        <h2 class="text-3xl md:text-4xl font-fancy text-gray-800 mb-2">
+            **Kanchan** & **[Your Name]**
+        </h2>
 
-        <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-center md:text-left order-2 md:order-none">
-            
-            <h1 class="text-4xl md:text-5xl font-fancy font-bold text-primary mb-3 animate-pulse">
-                A New Beginning Awaits...
-            </h1>
-            
-            <p class="text-xl md:text-2xl font-fancy text-gray-700 mb-6 border-b pb-4 border-teal-200">
-                Our Sweet Adventure is Loading.
+        <h1 class="text-5xl md:text-6xl font-fancy font-extrabold text-primary mb-6 animate-pulse">
+            We Said Yes! 💍
+        </h1>
+        
+        <p class="text-lg text-gray-600 mb-8 max-w-md mx-auto">
+            Our next great adventure is about to unfold. We are absolutely thrilled to share the news and invite you to witness our beginning.
+        </p>
+
+        <div class="mb-10 p-6 bg-teal-50 rounded-xl shadow-lg border-t-4 border-primary">
+            <p class="text-xl font-fancy font-bold text-primary mb-4 uppercase tracking-wider">
+                Mark Your Calendars
             </p>
+            <div class="space-y-4 text-gray-700">
+                
+                <div class="flex flex-col items-center">
+                    <span class="text-sm uppercase tracking-widest text-gray-500">The Grand Reveal</span>
+                    <span class="text-3xl font-fancy font-bold text-gray-800">15th February 2026</span>
+                </div>
 
-            <div class="mb-8 p-4 bg-teal-100/50 rounded-lg border border-teal-200/80">
-                <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
-                    Key Dates to Remember
-                </p>
-                <ul class="space-y-2 text-gray-600">
-                    <li class="flex items-center space-x-2">
-                        <span class="text-primary font-bold">🕊️ The Announcement:</span>
-                        <span class="flex-grow border-b border-dotted border-teal-300"></span>
-                        <span class="font-medium text-gray-800">**15th February 2026**</span>
-                    </li>
-                    <li class="flex items-center space-x-2">
-                        <span class="text-primary font-bold">🎉 The Celebration:</span>
-                        <span class="flex-grow border-b border-dotted border-teal-300"></span>
-                        <span class="font-medium text-gray-800">**22nd April 2026**</span>
-                    </li>
-                    <li class="text-xs text-gray-500 pt-2 text-center">
-                        *More details will be shared on the Announcement Date!*
-                    </li>
-                </ul>
+                <hr class="border-teal-200 w-1/2 mx-auto">
+                
+                <div class="flex flex-col items-center">
+                    <span class="text-sm uppercase tracking-widest text-gray-500">The Celebration</span>
+                    <span class="text-3xl font-fancy font-bold text-gray-800">22nd April 2026</span>
+                </div>
             </div>
-            <div class="bg-teal-50 p-6 rounded-xl shadow-inner border border-teal-200">
-                <p class="text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
-                    Be the First to Receive the E-Invite!
-                </p>
-                <form onsubmit="event.preventDefault(); showConfirmation();" class="flex flex-col space-y-4">
-                    <input 
-                        type="email" 
-                        placeholder="Enter your email for the invite" 
-                        required
-                        class="p-3 border border-teal-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                    >
-                    <button 
-                        type="submit" 
-                        class="bg-primary text-white py-3 rounded-lg font-semibold transition duration-300 shadow-lg hover:shadow-xl hover:bg-cyan-600"
-                    >
-                        Send Me The Invite Details
-                    </button>
-                </form>
-            </div>
-            
-            <p id="confirmation-message" class="mt-4 text-green-600 font-medium hidden">
-                You've been added to the guest list for the big reveal! Thank you!
-            </p>
-
         </div>
+        
+        <div class="bg-teal-100 p-6 rounded-lg border border-teal-200">
+            <p class="text-md font-semibold text-primary mb-3">
+                Be the first to get the official e-invite and venue details!
+            </p>
+            <form id="notifyForm" onsubmit="event.preventDefault(); showConfirmation();" class="flex flex-col space-y-4">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email address" 
+                    required
+                    class="p-3 border border-teal-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm w-full"
+                >
+                <button 
+                    type="submit" 
+                    class="bg-primary text-white py-3 rounded-lg font-bold uppercase tracking-wider transition duration-300 shadow-xl hover:shadow-2xl hover:bg-cyan-600"
+                >
+                    Get E-Invite Updates
+                </button>
+            </form>
+        </div>
+        
+        <p id="confirmation-message" class="mt-4 text-green-600 font-medium hidden">
+            🎉 Got it! We'll email you the details as soon as the e-invites are ready. Thank you!
+        </p>
+
     </div>
     
     <script>
@@ -103,11 +105,11 @@
         function showConfirmation() {
             const msg = document.getElementById('confirmation-message');
             msg.classList.remove('hidden');
-            // Reset the form after submission
-            document.querySelector('form').reset(); 
+            // Reset the form after successful submission
+            document.getElementById('notifyForm').reset(); 
             setTimeout(() => {
                 msg.classList.add('hidden');
-            }, 5000);
+            }, 7000); // Display confirmation for a bit longer
         }
     </script>
 </body>
