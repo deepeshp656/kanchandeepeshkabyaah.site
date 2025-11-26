@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading Our Next Chapter...</title>
+    <title>Our Next Chapter: Kanchan & [Your Name]</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom Font Setup */
@@ -35,7 +35,7 @@
         <div class="md:w-1/2 flex items-center justify-center p-6 bg-teal-50/70 order-1 md:order-none"> 
             <img 
                 src="kanchan.png" 
-                alt="Portrait of Kanchan" 
+                alt="Beautiful portrait of Kanchan" 
                 class="w-full h-auto max-h-[80vh] object-contain rounded-xl shadow-lg transition-transform duration-500 hover:scale-[1.02]"
                 onerror="this.onerror=null;this.src='https://placehold.co/400x600/ccfbf1/0d9488?text=Image+Loading+Error';"
             >
@@ -43,7 +43,7 @@
 
         <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-center md:text-left order-2 md:order-none">
             
-            <h1 class="text-4xl md:text-5xl font-fancy font-bold text-primary mb-4 animate-pulse">
+            <h1 class="text-4xl md:text-5xl font-fancy font-bold text-primary mb-3 animate-pulse">
                 A New Beginning Awaits...
             </h1>
             
@@ -51,18 +51,34 @@
                 Our Sweet Adventure is Loading.
             </p>
 
-            <p class="text-gray-500 text-base mb-8">
-                We're excited to share some life-changing news with you soon. Keep this page bookmarked!
-            </p>
-
+            <div class="mb-8 p-4 bg-teal-100/50 rounded-lg border border-teal-200/80">
+                <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
+                    Key Dates to Remember
+                </p>
+                <ul class="space-y-2 text-gray-600">
+                    <li class="flex items-center space-x-2">
+                        <span class="text-primary font-bold">🕊️ The Announcement:</span>
+                        <span class="flex-grow border-b border-dotted border-teal-300"></span>
+                        <span class="font-medium text-gray-800">**15th February 2026**</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="text-primary font-bold">🎉 The Celebration:</span>
+                        <span class="flex-grow border-b border-dotted border-teal-300"></span>
+                        <span class="font-medium text-gray-800">**22nd April 2026**</span>
+                    </li>
+                    <li class="text-xs text-gray-500 pt-2 text-center">
+                        *More details will be shared on the Announcement Date!*
+                    </li>
+                </ul>
+            </div>
             <div class="bg-teal-50 p-6 rounded-xl shadow-inner border border-teal-200">
                 <p class="text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
-                    Be the First to Know!
+                    Be the First to Receive the E-Invite!
                 </p>
                 <form onsubmit="event.preventDefault(); showConfirmation();" class="flex flex-col space-y-4">
                     <input 
                         type="email" 
-                        placeholder="Enter your email for the reveal date" 
+                        placeholder="Enter your email for the invite" 
                         required
                         class="p-3 border border-teal-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
                     >
@@ -70,7 +86,7 @@
                         type="submit" 
                         class="bg-primary text-white py-3 rounded-lg font-semibold transition duration-300 shadow-lg hover:shadow-xl hover:bg-cyan-600"
                     >
-                        Notify Me
+                        Send Me The Invite Details
                     </button>
                 </form>
             </div>
@@ -87,6 +103,8 @@
         function showConfirmation() {
             const msg = document.getElementById('confirmation-message');
             msg.classList.remove('hidden');
+            // Reset the form after submission
+            document.querySelector('form').reset(); 
             setTimeout(() => {
                 msg.classList.add('hidden');
             }, 5000);
