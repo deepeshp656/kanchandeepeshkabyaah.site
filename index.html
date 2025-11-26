@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading Our Next Chapter...</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom Font Setup */
@@ -12,10 +11,17 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7; /* Light neutral background */
+            background-color: #f0fdfa; /* Very light Cyan/Teal background */
         }
+        /* Custom Primary Color: Teal/Cyan for vibrancy and contrast */
         .text-primary {
-            color: #7d4f50; /* Deep Rose/Maroon for romance */
+            color: #0d9488; 
+        }
+        .bg-primary {
+            background-color: #0d9488;
+        }
+        .bg-primary:hover {
+            background-color: #06b6d4; /* A lighter cyan on hover */
         }
         .font-fancy {
             font-family: 'Playfair Display', serif;
@@ -24,35 +30,24 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
 
-    <!-- Main Content Container -->
-    <div class="w-full max-w-2xl bg-white shadow-2xl rounded-3xl overflow-hidden md:flex">
+    <div class="w-full max-w-2xl bg-white shadow-2xl rounded-3xl overflow-hidden md:flex transition duration-500 ease-in-out transform hover:scale-[1.01]">
         
-        <!-- Image Section (Left on Desktop, Top on Mobile) -->
-        <div class="md:w-1/2 flex items-center justify-center p-6 bg-rose-50/70">
-            <!-- 
-                *** IMPORTANT: REPLACE THIS PLACEHOLDER IMAGE SOURCE ***
-                
-                1. Download your background-removed photo (the one we created).
-                2. Upload it to your GitHub repository (e.g., as wife-portrait.png).
-                3. Change the 'src' below to the name of your file:
-                   Example: <img src="wife-portrait.png"...
-            -->
+        <div class="md:w-1/2 flex items-center justify-center p-6 bg-teal-50/70 order-1 md:order-none"> 
             <img 
-                src="https://placehold.co/800x1200/F0D9D9/7D4F50?text=Your+Beautiful+Portrait+Here" 
-                alt="Beautiful Portrait of Partner" 
+                src="kanchan.png" 
+                alt="Portrait of Kanchan" 
                 class="w-full h-auto max-h-[80vh] object-contain rounded-xl shadow-lg transition-transform duration-500 hover:scale-[1.02]"
-                onerror="this.onerror=null;this.src='https://placehold.co/400x600/F0D9D9/7D4F50?text=Image+Loading+Error';"
+                onerror="this.onerror=null;this.src='https://placehold.co/400x600/ccfbf1/0d9488?text=Image+Loading+Error';"
             >
         </div>
 
-        <!-- Text & Hint Section (Right on Desktop, Bottom on Mobile) -->
-        <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-center md:text-left">
+        <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-center md:text-left order-2 md:order-none">
             
             <h1 class="text-4xl md:text-5xl font-fancy font-bold text-primary mb-4 animate-pulse">
                 A New Beginning Awaits...
             </h1>
             
-            <p class="text-xl md:text-2xl font-fancy text-gray-700 mb-6 border-b pb-4 border-rose-200">
+            <p class="text-xl md:text-2xl font-fancy text-gray-700 mb-6 border-b pb-4 border-teal-200">
                 Our Sweet Adventure is Loading.
             </p>
 
@@ -60,21 +55,20 @@
                 We're excited to share some life-changing news with you soon. Keep this page bookmarked!
             </p>
 
-            <!-- Call to Action / Hint -->
-            <div class="bg-rose-50 p-6 rounded-xl shadow-inner border border-rose-200">
+            <div class="bg-teal-50 p-6 rounded-xl shadow-inner border border-teal-200">
                 <p class="text-sm font-semibold text-primary mb-3 uppercase tracking-wider">
                     Be the First to Know!
                 </p>
-                <form onsubmit="event.preventDefault(); showConfirmation();" class="flex flex-col space-y-3">
+                <form onsubmit="event.preventDefault(); showConfirmation();" class="flex flex-col space-y-4">
                     <input 
                         type="email" 
                         placeholder="Enter your email for the reveal date" 
                         required
-                        class="p-3 border border-rose-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                        class="p-3 border border-teal-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
                     >
                     <button 
                         type="submit" 
-                        class="bg-primary text-white py-3 rounded-lg font-semibold hover:bg-rose-600 transition duration-300 shadow-md hover:shadow-lg"
+                        class="bg-primary text-white py-3 rounded-lg font-semibold transition duration-300 shadow-lg hover:shadow-xl hover:bg-cyan-600"
                     >
                         Notify Me
                     </button>
