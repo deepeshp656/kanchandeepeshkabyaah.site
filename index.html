@@ -11,76 +11,115 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            /* Subtle gradient background for elegance */
-            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); 
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            position: relative;
+            overflow-x: hidden; /* Prevent horizontal scroll from animation */
         }
         /* Custom Primary Color: Teal/Cyan */
-        .text-primary {
-            color: #0d9488; 
+        .text-primary { color: #0d9488; }
+        .bg-primary { background-color: #0d9488; }
+        .bg-primary:hover { background-color: #06b6d4; }
+        .font-fancy { font-family: 'Playfair Display', serif; }
+
+        /* Animation for the Countdown Timer Pulse */
+        @keyframes pulse-once {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
         }
-        .bg-primary {
-            background-color: #0d9488;
+        .animate-pulse-once {
+            animation: pulse-once 1.5s ease-in-out infinite;
         }
-        .bg-primary:hover {
-            background-color: #06b6d4; /* A lighter cyan on hover */
+
+        /* Subtle Wiggle for Event Boxes */
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(0.5deg); }
+            75% { transform: rotate(-0.5deg); }
         }
-        .font-fancy {
-            font-family: 'Playfair Display', serif;
+        .animate-wiggle {
+            animation: wiggle 4s ease-in-out infinite;
         }
+
+        /* Subtle Star/Sparkle Background Effect (Optional) */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background: radial-gradient(circle, transparent 20%, #ccfbf1 20%, #ccfbf1 80%, transparent 80%);
+            background-size: 200px 200px;
+            animation: moveBackground 60s linear infinite;
+            z-index: -1;
+        }
+        @keyframes moveBackground {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
 
     <div class="w-full max-w-xl bg-white shadow-2xl rounded-3xl p-8 md:p-12 text-center transition duration-700 ease-in-out transform hover:shadow-3xl hover:scale-[1.01]">
         
-        <div class="mb-8"> 
+        <div class="mb-6"> 
             <img 
                 src="kanchan.png" 
                 alt="Beautiful portrait of Kanchan" 
-                class="w-48 h-48 md:w-64 md:h-64 object-cover mx-auto rounded-full border-4 border-teal-200 shadow-xl transition-transform duration-500 hover:scale-105"
+                class="w-48 h-48 md:w-56 md:h-56 object-cover mx-auto rounded-full border-4 border-teal-200 shadow-xl transition-transform duration-500 hover:scale-105"
                 onerror="this.onerror=null;this.src='https://placehold.co/400x400/ccfbf1/0d9488?text=Image+Loading+Error';"
             >
         </div>
         
         <div class="mb-8"> 
-    
             <p class="text-xl md:text-2xl font-fancy text-primary tracking-wide mb-1">
-                It's Coming Soon...
+                The Countdown Begins...
             </p>
-        
             <h2 class="text-5xl md:text-6xl font-fancy font-bold text-gray-800 leading-tight">
                 Kanchan <span class="text-primary text-4xl md:text-5xl mx-2">&amp;</span> Deepesh
             </h2>
-        
             <div class="w-16 h-1 bg-teal-200/80 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <h1 class="text-5xl md:text-6xl font-fancy font-extrabold text-primary mb-6 animate-pulse">
-            We Said Yes! 💍
-        </h1>
-        
-        <p class="text-lg text-gray-600 mb-8 max-w-md mx-auto">
-            Our next great adventure is about to unfold. We are absolutely thrilled to share the news and invite you to witness our beginning.
-        </p>
+        <div class="bg-teal-100 p-4 rounded-lg shadow-inner mb-8">
+            <p class="text-sm uppercase tracking-widest text-primary font-semibold mb-3">
+                Days Until We Tie the Knot
+            </p>
+            <div id="countdown-timer" class="flex justify-center space-x-4 text-gray-800 animate-pulse-once">
+                </div>
+        </div>
 
-        <div class="mb-10 p-6 bg-teal-50 rounded-xl shadow-lg border-t-4 border-primary">
-            <p class="text-xl font-fancy font-bold text-primary mb-4 uppercase tracking-wider">
-                Mark Your Calendars
+        <div class="mb-10 p-6 bg-white rounded-xl shadow-lg border-t-4 border-primary">
+            <p class="text-2xl font-fancy font-bold text-primary mb-4 uppercase tracking-wider">
+                Our Wedding Schedule
             </p>
             <div class="space-y-4 text-gray-700">
                 
-                <div class="flex flex-col items-center">
-                    <span class="text-sm uppercase tracking-widest text-gray-500">The Grand Reveal</span>
-                    <span class="text-3xl font-fancy font-bold text-gray-800">10th January 2026</span>
+                <div class="flex justify-between items-center p-3 bg-teal-50 rounded-lg shadow-sm animate-wiggle">
+                    <span class="text-lg font-bold text-gray-800">💛 Haldi Ceremony</span>
+                    <span class="text-md font-medium text-red-500 italic">Date To Be Disclosed</span>
                 </div>
 
-                <hr class="border-teal-200 w-1/2 mx-auto">
-                
-                <div class="flex flex-col items-center">
-                    <span class="text-sm uppercase tracking-widest text-gray-500">The Celebration</span>
-                    <span class="text-3xl font-fancy font-bold text-gray-800">TBD</span>
+                <div class="flex justify-between items-center p-3 bg-teal-50 rounded-lg shadow-sm animate-wiggle">
+                    <span class="text-lg font-bold text-gray-800">🎤 Sangeet Night</span>
+                    <span class="text-md font-medium text-red-500 italic">Date To Be Disclosed</span>
                 </div>
+                
+                <div class="flex justify-between items-center p-3 bg-teal-50 rounded-lg shadow-sm animate-wiggle">
+                    <span class="text-lg font-bold text-gray-800">💍 Engagement Ceremony</span>
+                    <span class="text-md font-medium text-red-500 italic">Date To Be Disclosed</span>
+                </div>
+
+                <div class="flex justify-between items-center p-3 bg-teal-200 rounded-lg shadow-md border border-primary">
+                    <span class="text-xl font-bold text-primary">🎉 The Holy Matrimony</span>
+                    <span class="text-xl font-bold text-gray-800">10th Feb 2026</span>
+                </div>
+
             </div>
+            <p class="mt-4 text-sm text-gray-500">*Exact timings and venue details will follow soon.</p>
         </div>
         
         <div class="bg-teal-100 p-6 rounded-lg border border-teal-200">
@@ -110,15 +149,54 @@
     </div>
     
     <script>
-        // Simple client-side confirmation message for the form submit
+        // --- Countdown Timer Logic ---
+        const finalDate = new Date("Feb 10, 2026 00:00:00").getTime();
+        const countdownElement = document.getElementById("countdown-timer");
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = finalDate - now;
+
+            if (distance < 0) {
+                countdownElement.innerHTML = `<div class="text-2xl font-bold text-primary">We Are Married! ❤️</div>`;
+                clearInterval(timerInterval);
+                return;
+            }
+
+            // Calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Function to create a timer block (HTML structure)
+            const createTimerBlock = (value, label) => `
+                <div class="flex flex-col items-center">
+                    <span class="text-4xl md:text-5xl font-fancy font-extrabold text-primary">${value.toString().padStart(2, '0')}</span>
+                    <span class="text-xs uppercase tracking-widest text-gray-500 mt-1">${label}</span>
+                </div>
+            `;
+
+            countdownElement.innerHTML = `
+                ${createTimerBlock(days, 'Days')}
+                ${createTimerBlock(hours, 'Hours')}
+                ${createTimerBlock(minutes, 'Minutes')}
+                ${createTimerBlock(seconds, 'Seconds')}
+            `;
+        }
+
+        // Run immediately and then every second
+        updateCountdown();
+        const timerInterval = setInterval(updateCountdown, 1000);
+
+        // --- Form Confirmation Logic (Kept from previous version) ---
         function showConfirmation() {
             const msg = document.getElementById('confirmation-message');
             msg.classList.remove('hidden');
-            // Reset the form after successful submission
             document.getElementById('notifyForm').reset(); 
             setTimeout(() => {
                 msg.classList.add('hidden');
-            }, 7000); // Display confirmation for a bit longer
+            }, 7000);
         }
     </script>
 </body>
