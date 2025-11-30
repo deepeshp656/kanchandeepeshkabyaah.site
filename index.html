@@ -3,352 +3,631 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanchan & Deepesh: Our Love Story Unfolds</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Kanchan & Deepesh | We Are Getting Married!</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <style>
-        /* Custom Font Setup */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
-        
+        /* Base Styles & Typography */
+        :root {
+            --primary-color: #7b0d88; /* Rich plum */
+            --secondary-color: #fcf6e7; /* Very light cream/ivory body background */
+            --accent-color: #c9a050; /* Soft Gold/Brass */
+            --text-dark: #333333; 
+            --text-light: #6a6a6a;
+            
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --font-script: 'Dancing Script', cursive; 
+            
+            --event-bg: #fffefe; 
+            --event-border-color: rgba(123, 13, 136, 0.15); 
+            --event-icon-color: #8e24aa; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            /* New Color Grading: Warm Saffron/Maroon */
-            background: linear-gradient(135deg, #fefce8 0%, #fde68a 100%); /* Light Yellow to Soft Gold */
+            font-family: var(--font-body); 
+            color: var(--text-dark);
+            background-color: var(--secondary-color); 
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            padding-top: 0; 
+            position: relative; 
+        }
+
+        /* --- HEADER REDESIGN (unchanged) --- */
+        .header {
+            background-color: var(--primary-color); 
+            padding: 15px 30px; 
+            position: sticky; 
+            top: 0;           
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25); 
+            z-index: 1000;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+
+        .header .logo-text {
+            font-family: var(--font-script); 
+            color: white;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .nav-links {
+            display: flex; 
+            gap: 30px; 
+        }
+
+        .nav-links a {
+            color: white; 
+            text-decoration: none;
+            font-weight: 500; 
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            transition: color 0.3s, transform 0.2s;
             position: relative;
-            overflow-x: hidden;
-            color: #4a4a4a; /* Darker text for better contrast */
-        }
-        /* Primary Color: Deep Saffron/Orange */
-        .text-primary { color: #ea580c; } /* Tailwind orange-600 */
-        .bg-primary { background-color: #ea580c; }
-        .bg-primary:hover { background-color: #f97316; } /* Tailwind orange-500 */
-        /* Secondary Accent Color: Rich Maroon */
-        .text-secondary { color: #9f1239; } /* Tailwind rose-800 */
-        .border-secondary { border-color: #9f1239; }
-        .bg-secondary-light { background-color: #fff1f2; } /* Tailwind rose-50 */
-
-        .font-fancy { font-family: 'Playfair Display', serif; }
-
-        /* General Animations */
-        @keyframes pulse-light {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.02); opacity: 0.9; }
-        }
-        .animate-pulse-light { animation: pulse-light 2s ease-in-out infinite; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-
-        /* Accordion-specific styles */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-        }
-        .accordion-content.active {
-            max-height: 500px; /* Adjust as needed for content */
-            padding-top: 1rem;
-            padding-bottom: 1rem;
         }
 
-        /* Animated Particles Background */
-        .particles {
+        .nav-links a::after { 
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-1px);
+        }
+        
+        /* --- MAIN CONTAINER & PETALS --- */
+        .container {
+            text-align: center;
+            position: relative; 
+            
+            background-color: #ffffff; 
+            background-image: url('petal-background.png'); 
+            background-repeat: repeat;
+            background-size: 300px 300px; 
+            background-blend-mode: multiply; 
+            opacity: 0.99; 
+
+            overflow: hidden; 
+            
+            box-shadow: 0 0 40px rgba(0,0,0,0.1); 
+            
+            max-width: 1400px; 
+            width: 95%; 
+            
+            margin: 100px auto 100px auto; 
+            
+            padding: 50px; 
+            
+            border-radius: 15px;
+            min-height: calc(100vh - 200px); 
+            z-index: 10; 
+            
+            display: flex;
+            justify-content: center;
+        }
+
+        /* --- DECORATIVE IMAGES (Ganesh & Florals) --- */
+
+        /* Ganesh Ji Image */
+        .ganesh-ji {
+            position: absolute; 
+            top: 0; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px; 
+            height: auto;
+            z-index: 101; 
+            opacity: 0.9;
+            border-radius: 50%; 
+            border: 5px solid var(--accent-color); 
+            box-shadow: 0 0 20px rgba(0,0,0,0.1); 
+            background-color: white; 
+            padding: 10px; 
+        }
+
+        /* Floral Corner Images Container (Fixed Z-Index) */
+        .floral-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            overflow: hidden;
-            z-index: -1;
+            /* FIX: Ensures corner florals appear above repeating background petals */
+            z-index: 15; 
         }
-        .particle {
+        
+        .floral {
             position: absolute;
-            background-color: #fcd34d; /* Yellow-300 */
-            border-radius: 50%;
-            opacity: 0;
-            animation: floatAndFade 15s infinite ease-in;
+            width: 400px; 
+            height: auto;
+            opacity: 0.8; 
+            filter: blur(0.5px); 
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            z-index: 5; 
         }
-        .particle:nth-child(2n) { background-color: #fecaca; /* Rose-200 */ }
-        .particle:nth-child(3n) { background-color: #fde68a; /* Amber-100 */ }
 
-        @keyframes floatAndFade {
-            0% { transform: translateY(0) scale(0); opacity: 0; }
-            10% { opacity: 0.8; transform: scale(0.5); }
-            80% { opacity: 0.1; }
-            100% { transform: translateY(-1000px) scale(1); opacity: 0; }
+        .floral-top-left { top: 0; left: 0; transform: rotate(-10deg); }
+        .floral-top-right { top: 0; right: 0; transform: rotate(10deg); }
+        .floral-bottom-left { bottom: 0; left: 0; transform: rotate(-5deg); }
+        .floral-bottom-right { bottom: 0; right: 0; transform: rotate(5deg); }
+
+
+        .content-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            position: relative;
+            z-index: 15; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-content-area {
+            position: relative;
+            z-index: 10; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 0; 
+        }
+
+        /* Hero Text & Names */
+        .hero-text {
+            margin-top: 270px; 
+            margin-bottom: 30px;
+        }
+
+        .invitation-line {
+            font-family: var(--font-body);
+            font-weight: 300; 
+            font-size: 1.4em; 
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .names {
+            font-family: var(--font-heading);
+            font-size: 5em; 
+            font-weight: 700; 
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            letter-spacing: 2px; 
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            gap: 10px; 
+        }
+
+        .names .name-kanchan,
+        .names .name-deepesh {
+            font-family: var(--font-script);
+            font-size: 1.2em; 
+            font-weight: 700; 
+            color: var(--accent-color); 
+            padding: 0 15px;
+            display: inline-block;
+        }
+
+        .names .ampersand { 
+            font-family: var(--font-heading);
+            font-size: 0.7em; 
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+
+        /* Countdown Styles (unchanged) */
+        .countdown-section { margin-bottom: 50px; }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+            background-color: var(--event-bg);
+            border: none; 
+            border-radius: 15px; 
+            padding: 25px 40px; 
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1); 
+        }
+
+        .countdown-box {
+            padding: 10px 15px; 
+            border-right: none; 
+            background-color: var(--secondary-color); /* Lighter background for boxes */
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .countdown-box:last-child { border-right: none; }
+        .countdown-box:hover { background-color: rgba(123, 13, 136, 0.05); }
+
+        .countdown-number {
+            font-size: 2.8em; 
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+            line-height: 1.1;
+        }
+
+        .countdown-label {
+            font-size: 0.85em; 
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 5px;
+            font-weight: 600;
+        }
+        
+        /* --- IMAGE SLIDE REDESIGN --- */
+        .image-gallery {
+            position: relative;
+            width: 350px; 
+            height: 350px; 
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 30px auto 50px;
+            /* 🏆 REDESIGN: Simplified border and increased shadow for premium feel */
+            border: 4px solid var(--accent-color); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Stronger shadow */
+            z-index: 10;
+        }
+        
+        .gallery-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .gallery-track img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+            display: block;
+        }
+        
+        /* --- EVENT CARD REDESIGN --- */
+        .event-details-section {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            margin: 50px auto;
+            max-width: 1000px; 
+            padding: 0 20px;
+        }
+
+        .event-block {
+            background-color: var(--event-bg);
+            border: 1px solid var(--event-border-color);
+            border-radius: 10px;
+            padding: 30px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            display: flex; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* 🏆 REDESIGN: Add accent color top border for flair */
+            border-top: 5px solid var(--accent-color); 
+        }
+
+        .event-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Card Generator Section (unchanged) */
+        .card-generator-section { padding: 0; text-align: center; width: 100%; margin: 50px auto; }
+        .card-generator-wrapper {
+            background-color: var(--event-bg);
+            border: 1px solid var(--event-border-color);
+            border-radius: 10px;
+            padding: 40px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 800px; 
+            margin: 0 auto;
+        }
+
+        /* --- FOOTER REDESIGN --- */
+        .footer {
+            /* 🏆 REDESIGN: Lighter background, dark text */
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            padding: 40px 20px; 
+            font-size: 0.95em;
+            text-align: center;
+            margin-top: 50px;
+            position: relative;
+            z-index: 10;
+            border-top: 4px solid var(--accent-color); /* Gold border for separation */
+        }
+
+        .footer p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .footer .thank-you-text {
+            font-family: var(--font-script);
+            font-size: 2em;
+            font-weight: 700;
+            /* 🏆 REDESIGN: Primary color for contrast */
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            /* 🏆 REDESIGN: Darker links for contrast on light background */
+            color: var(--primary-color); 
+            text-decoration: none;
+            margin: 0 15px; 
+            font-size: 1.5em; 
+            transition: color 0.3s ease, transform 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body { padding-top: 0; } 
+            
+            .header { flex-direction: column; padding: 15px 15px; gap: 15px; }
+            .header .logo-text { font-size: 1.5em; }
+            .nav-links { gap: 15px; }
+            .nav-links a { font-size: 0.9em; margin: 0; }
+            .nav-links a::after { bottom: -3px; }
+
+
+            .container { 
+                margin: 15px auto; padding: 15px; padding-top: 70px; max-width: 95%; 
+                background-size: 200px 200px; 
+            }
+            
+            .ganesh-ji { top: 0; width: 200px; border: 3px solid var(--accent-color); padding: 5px; } 
+            
+            .hero-text { margin-top: 220px; } 
+            
+            .names { font-size: 3em; flex-direction: column; gap: 0; }
+            
+            .image-gallery { width: 300px; height: 300px; border: 3px solid var(--accent-color); }
+
+            .countdown { gap: 10px; padding: 15px 20px; }
+            .countdown-box { padding: 5px 8px; }
+            .countdown-number { font-size: 2em; }
+            .countdown-label { font-size: 0.7em; }
+
+            .card-generator-wrapper { padding: 25px 15px; }
+
+            .footer .thank-you-text { font-size: 1.5em; }
+            .social-links a { font-size: 1.2em; margin: 0 10px; }
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body>
 
-    <div class="particles"></div>
+    <header class="header">
+        <a href="#home" class="logo-text">Kanchan & Deepesh</a>
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#events">Events</a>
+            <a href="#card">Card</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-    <div class="relative w-full max-w-xl bg-white shadow-2xl rounded-3xl p-8 md:p-12 text-center transition duration-700 ease-in-out transform hover:shadow-3xl hover:scale-[1.01] z-10">
+    <div class="container" id="home">
         
-        <div class="relative w-full h-64 md:h-72 mb-8 mx-auto overflow-hidden rounded-2xl shadow-xl border-4 border-orange-200">
-            <div id="image-slider" class="flex transition-transform ease-out duration-500 h-full">
-                <img src="kanchan.png" alt="Kanchan" class="w-full h-full object-cover flex-shrink-0">
-                <img src="deepesh.png" alt="Deepesh" class="w-full h-full object-cover flex-shrink-0">
-                <img src="couple.png" alt="Kanchan & Deepesh" class="w-full h-full object-cover flex-shrink-0">
-                </div>
-            <button class="absolute top-1/2 left-2 -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-60 transition" onclick="moveSlider(-1)">&#10094;</button>
-            <button class="absolute top-1/2 right-2 -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-60 transition" onclick="moveSlider(1)">&#10095;</button>
-        </div>
-        
-        <div class="mb-8"> 
-            <p class="text-xl md:text-2xl font-fancy text-primary tracking-wide mb-1 fade-in">
-                The Countdown Begins...
-            </p>
-            <h2 class="text-5xl md:text-6xl font-fancy font-bold text-gray-800 leading-tight fade-in">
-                Kanchan <span class="text-primary text-4xl md:text-5xl mx-2">&amp;</span> Deepesh
-            </h2>
-            <div class="w-16 h-1 bg-orange-200/80 mx-auto mt-4 rounded-full fade-in"></div>
-        </div>
+        <img src="ganesh-ji.png" alt="Ganesh Ji" class="ganesh-ji">
 
-        <div class="bg-gradient-to-r from-yellow-100 to-orange-100 p-4 rounded-lg shadow-inner mb-8 border border-orange-200 animate-pulse-light">
-            <p class="text-sm uppercase tracking-widest text-primary font-semibold mb-3">
-                Days Until Our Big Day
-            </p>
-            <div id="countdown-timer" class="flex justify-center space-x-4 text-gray-800">
-                </div>
+        <div class="floral-container">
+            <img src="floral-left-top.png" alt="Floral Decoration Top Left" class="floral floral-top-left">
+            <img src="floral-right-top.png" alt="Floral Decoration Top Right" class="floral floral-top-right">
+            <img src="floral-left-bottom.png" alt="Floral Decoration Bottom Left" class="floral floral-bottom-left">
+            <img src="floral-right-bottom.png" alt="Floral Decoration Bottom Right" class="floral floral-bottom-right">
         </div>
+        <div class="content-wrapper">
+            <div class="main-content-area">
+                <div class="hero-text">
+                    <p class="invitation-line">With Joyful Hearts, We Invite You To Celebrate</p>
+                    <h2 class="names">
+                        <span class="name-kanchan">Kanchan</span> 
+                        <span class="ampersand">&</span> 
+                        <span class="name-deepesh">Deepesh</span>
+                    </h2>
+                </div>
 
-        <div class="mb-10 p-6 bg-secondary-light rounded-xl shadow-lg border-t-4 border-secondary">
-            <p class="text-2xl font-fancy font-bold text-secondary mb-6 uppercase tracking-wider fade-in">
-                Our Sacred Journey
-            </p>
-            <div class="space-y-4 text-gray-700">
+                <div class="countdown-section">
+                    <div id="countdown" class="countdown">
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="gallery-track" id="image-gallery-track">
+                        <img src="kanchan.png" alt="Kanchan">
+                        <img src="deepesh.png" alt="Deepesh">
+                        <img src="kanchan-deepesh-couple.png" alt="Kanchan & Deepesh Together">
+                    </div>
+                </div>
+
+                <section class="event-details-section" id="events">
+                    <div class="event-block">
+                        <span class="icon">💍</span>
+                        <h3>Engagement Ceremony</h3>
+                        <p class="date-time">**TBD**</p>
+                        <p class="location">Location: Narsinghpur</p>
+                    </div>
+                    <div class="event-block">
+                        <span class="icon">✨</span>
+                        <h3>Haldi & Mehendi</h3>
+                        <p class="date-time">**TBD**</p>
+                        <p class="location">Location: Narsinghpur</p>
+                    </div>
+                    <div class="event-block">
+                        <span class="icon">🎉</span>
+                        <h3>Sangeet Night</h3>
+                        <p class="date-time">**TBD**</p>
+                        <p class="location">Location: Narsinghpur</p>
+                    </div>
+                    <div class="event-block">
+                        <span class="icon">🕉️</span>
+                        <h3>Wedding Ceremony</h3>
+                        <p class="date-time">**Feb. 10, 2026 - Evening**</p>
+                        <p class="location">Location: Narsinghpur</p>
+                    </div>
+                    <div class="event-block">
+                        <span class="icon">🥂</span>
+                        <h3>Reception</h3>
+                        <p class="date-time">**TBD**</p>
+                        <p class="location">Location: Narsinghpur</p>
+                    </div>
+                </section>
                 
-                <div class="accordion-item bg-rose-100 rounded-lg shadow-md border border-rose-300 cursor-pointer hover:bg-rose-200 transition-all">
-                    <div class="accordion-header flex justify-between items-center p-4">
-                        <span class="text-xl font-bold text-rose-800 flex items-center">
-                            <span class="mr-2 text-3xl">🎉</span> The Holy Matrimony
-                        </span>
-                        <span class="text-xl font-bold text-gray-800">10th Feb 2026</span>
+                <section class="card-generator-section" id="card">
+                    <div class="card-generator-wrapper">
+                        <h2>Personalize Your Card</h2>
+                        <p>Please enter your last name to generate your family's personalized e-invite.</p>
+                        <div class="card-form">
+                            <input type="text" id="guestLastName" placeholder="Enter Your Family Name (e.g., Sharma)">
+                            <button onclick="generateCard()">Generate My Card</button>
+                        </div>
+                        <div id="personalizedCard" class="personalized-card-output">
+                            </div>
                     </div>
-                    <div class="accordion-content p-4 text-left hidden-block">
-                        <p class="font-semibold text-rose-700 mb-2">Importance of the Ritual:</p>
-                        <p class="text-sm text-gray-600 mb-4">
-                            The Vivah Sanskar (marriage ceremony) is one of the most significant Hindu sacraments, uniting two souls and families for a lifetime. It symbolizes a sacred bond, commitment, and the beginning of a new chapter filled with shared responsibilities and joy.
-                        </p>
-                        <p class="font-semibold text-rose-700 mb-2">A Suited Shloka:</p>
-                        <p class="text-sm italic text-gray-500">
-                            "Om Sahana Vavatu, Sahanau Bhunaktu, Saha Veeryam Karavavahai, Tejasvina Vaditamastu, Ma Vidvishavahai. Om Shantih Shantih Shantih."<br>
-                            <span class="block mt-1 text-xs text-gray-400">
-                                (Meaning: May we be protected together. May we be nourished together. May we work together with great energy. May our intellect be sharpened. May we not hate each other. Om peace, peace, peace.)
-                            </span>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="accordion-item bg-rose-50 rounded-lg shadow-sm border border-rose-200 cursor-pointer hover:bg-rose-100 transition-all">
-                    <div class="accordion-header flex justify-between items-center p-3">
-                        <span class="text-lg font-bold text-rose-700 flex items-center">
-                            <span class="mr-2 text-2xl">💍</span> Engagement Ceremony
-                        </span>
-                        <span class="text-md font-medium text-orange-500 italic">Date To Be Disclosed</span>
-                    </div>
-                    <div class="accordion-content p-4 text-left hidden-block">
-                        <p class="font-semibold text-rose-700 mb-2">Importance of the Ritual:</p>
-                        <p class="text-sm text-gray-600 mb-4">
-                            The Engagement (Sagai) marks the formal agreement between the two families for the upcoming marriage. Rings are exchanged, signifying a promise of togetherness and commitment. It's a joyful occasion celebrating the union to come.
-                        </p>
-                        <p class="font-semibold text-rose-700 mb-2">A Suited Shloka:</p>
-                        <p class="text-sm italic text-gray-500">
-                            "Vakratunda Mahakaya Surya Koti Samaprabha, Nirvighnam Kuru Me Deva Sarva-Kaaryeshu Sarvada."<br>
-                            <span class="block mt-1 text-xs text-gray-400">
-                                (Meaning: O Ganesha, of curved trunk, massive body, and with the radiance of a million suns, please make all my endeavors free of obstacles, always.) - Seeking blessings for a smooth beginning.
-                            </span>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="accordion-item bg-rose-50 rounded-lg shadow-sm border border-rose-200 cursor-pointer hover:bg-rose-100 transition-all">
-                    <div class="accordion-header flex justify-between items-center p-3">
-                        <span class="text-lg font-bold text-rose-700 flex items-center">
-                            <span class="mr-2 text-2xl">🎤</span> Sangeet Night
-                        </span>
-                        <span class="text-md font-medium text-orange-500 italic">Date To Be Disclosed</span>
-                    </div>
-                    <div class="accordion-content p-4 text-left hidden-block">
-                        <p class="font-semibold text-rose-700 mb-2">Importance of the Ritual:</p>
-                        <p class="text-sm text-gray-600 mb-4">
-                            The Sangeet ceremony is a vibrant and joyous pre-wedding celebration filled with music, dance, and merriment. It's an evening where both families come together to celebrate, express their happiness through performances, and strengthen their bonds.
-                        </p>
-                        <p class="font-semibold text-rose-700 mb-2">A Suited Shloka:</p>
-                        <p class="text-sm italic text-gray-500">
-                            "Yatra Naryastu Pujyante Ramante Tatra Devata."<br>
-                            <span class="block mt-1 text-xs text-gray-400">
-                                (Meaning: Where women are honored, there the deities rejoice.) - Celebrating the bride-to-be and the joy she brings.
-                            </span>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="accordion-item bg-rose-50 rounded-lg shadow-sm border border-rose-200 cursor-pointer hover:bg-rose-100 transition-all">
-                    <div class="accordion-header flex justify-between items-center p-3">
-                        <span class="text-lg font-bold text-rose-700 flex items-center">
-                            <span class="mr-2 text-2xl">💛</span> Haldi Ceremony
-                        </span>
-                        <span class="text-md font-medium text-orange-500 italic">Date To Be Disclosed</span>
-                    </div>
-                    <div class="accordion-content p-4 text-left hidden-block">
-                        <p class="font-semibold text-rose-700 mb-2">Importance of the Ritual:</p>
-                        <p class="text-sm text-gray-600 mb-4">
-                            The Haldi ceremony involves applying a paste of turmeric, oil, and water to the bride and groom's bodies. Turmeric is believed to have purifying properties, blessing the couple with good health, prosperity, and a radiant glow for their wedding day.
-                        </p>
-                        <p class="font-semibold text-rose-700 mb-2">A Suited Shloka:</p>
-                        <p class="text-sm italic text-gray-500">
-                            "Om Trayambakam Yajamahe Sugandhim Pushti-Vardhanam, Urvarukamiva Bandhanan Mrityor Mukshiya Maamritat."<br>
-                            <span class="block mt-1 text-xs text-gray-400">
-                                (Meaning: We worship the three-eyed one, who is fragrant and nourishes all beings. May he liberate us from the bondage of death for the sake of immortality, just as a cucumber is severed from its stalk.) - A prayer for well-being and longevity.
-                            </span>
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-            <p class="mt-6 text-sm text-gray-500">*Exact timings and venue details for all ceremonies will be revealed soon!</p>
+                </section>
+            </div> 
         </div>
-        
-        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg border border-orange-200 shadow-md">
-            <p class="text-lg font-semibold text-primary mb-3">
-                Be the first to receive your personalized e-invite and all event details!
-            </p>
-            <form id="notifyForm" onsubmit="event.preventDefault(); showConfirmation();" class="flex flex-col space-y-4">
-                <input 
-                    type="email" 
-                    placeholder="Enter your email address" 
-                    required
-                    class="p-3 border border-orange-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm w-full"
-                >
-                <button 
-                    type="submit" 
-                    class="bg-primary text-white py-3 rounded-lg font-bold uppercase tracking-wider transition duration-300 shadow-xl hover:shadow-2xl hover:bg-orange-500"
-                >
-                    Get E-Invite Updates
-                </button>
-            </form>
-        </div>
-        
-        <p id="confirmation-message" class="mt-4 text-green-600 font-medium hidden fade-in">
-            🎉 Got it! We'll email you the details as soon as the e-invites are ready. Thank you!
-        </p>
+    </div> 
 
-    </div>
-    
+    <footer class="footer" id="contact">
+        <span class="thank-you-text">Thank You for Being a Part of Our Special Day!</span>
+        <p>&copy; 2026 Kanchan & Deepesh. Kindly RSVP by January 20, 2026.</p>
+        <div class="social-links">
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a> 
+            <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
     <script>
-        // --- Image Slider Logic ---
-        const slider = document.getElementById('image-slider');
-        const images = slider.querySelectorAll('img');
-        let currentIndex = 0;
-        const totalImages = images.length;
-
-        function updateSlider() {
-            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        function moveSlider(direction) {
-            currentIndex = (currentIndex + direction + totalImages) % totalImages;
-            updateSlider();
-        }
-
-        // Auto-slide functionality
-        setInterval(() => {
-            moveSlider(1);
-        }, 5000); // Change image every 5 seconds
-
-        // --- Countdown Timer Logic ---
-        const finalDate = new Date("Feb 10, 2026 00:00:00").getTime();
-        const countdownElement = document.getElementById("countdown-timer");
+        // --- 1. COUNTDOWN FUNCTIONALITY ---
+        const weddingDate = new Date("Feb 10, 2026 00:00:00").getTime(); 
 
         function updateCountdown() {
             const now = new Date().getTime();
-            const distance = finalDate - now;
-
-            if (distance < 0) {
-                countdownElement.innerHTML = `<div class="text-3xl font-fancy font-bold text-secondary">We Are Married! ❤️</div>`;
-                clearInterval(timerInterval);
-                return;
-            }
+            const distance = weddingDate - now;
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            const createTimerBlock = (value, label) => `
-                <div class="flex flex-col items-center">
-                    <span class="text-4xl md:text-5xl font-fancy font-extrabold text-primary">${value.toString().padStart(2, '0')}</span>
-                    <span class="text-xs uppercase tracking-widest text-gray-600 mt-1">${label}</span>
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "<div class='countdown-box'><span class='countdown-number'>Yay!</span><span class='countdown-label'>Married!</span></div>";
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- 2. CARD GENERATION FUNCTIONALITY ---
+        function generateCard() {
+            const guestLastNameInput = document.getElementById('guestLastName').value.trim();
+            const outputDiv = document.getElementById('personalizedCard');
+            
+            if (guestLastNameInput === "") {
+                outputDiv.innerHTML = "Please enter your family name to personalize the card.";
+                outputDiv.style.color = "#a00000"; 
+                outputDiv.style.borderColor = "#a00000";
+                return;
+            }
+            
+            outputDiv.style.color = "var(--text-dark)";
+            outputDiv.style.borderColor = "var(--accent-color)";
+            
+            const cardContent = `
+                <div style="text-align: center;">
+                    <p style="font-size: 0.9em; margin-bottom: 10px; color: var(--text-light);">With the blessings of God and our parents,</p>
+                    <p style="font-size: 1.1em; font-weight: 400; margin-bottom: 15px;">We joyfully invite</p>
+                    <p class="guest-name">Mr. & Mrs. ${guestLastNameInput}</p>
+                    <p style="font-size: 0.95em; color: var(--text-light);">to the wedding celebration of</p>
+                    <p style="font-size: 1.3em; font-weight: 600; color: var(--primary-color); margin-top: 10px;">Kanchan & Deepesh</p>
+                    <small>Kindly check the events section for details.</small>
                 </div>
             `;
 
-            countdownElement.innerHTML = `
-                ${createTimerBlock(days, 'Days')}
-                ${createTimerBlock(hours, 'Hours')}
-                ${createTimerBlock(minutes, 'Minutes')}
-                ${createTimerBlock(seconds, 'Seconds')}
-            `;
+            outputDiv.innerHTML = cardContent;
         }
 
-        updateCountdown();
-        const timerInterval = setInterval(updateCountdown, 1000);
+        // --- 3. IMAGE GALLERY SLIDER ---
+        const galleryTrack = document.getElementById('image-gallery-track');
+        const galleryImages = galleryTrack.querySelectorAll('img');
+        let currentGalleryIndex = 0;
+        const totalGalleryImages = galleryImages.length;
 
-        // --- Form Confirmation Logic ---
-        function showConfirmation() {
-            const msg = document.getElementById('confirmation-message');
-            msg.classList.remove('hidden');
-            msg.classList.add('fade-in'); // Add fade-in animation
-            document.getElementById('notifyForm').reset(); 
-            setTimeout(() => {
-                msg.classList.add('hidden');
-                msg.classList.remove('fade-in'); // Remove class for next time
-            }, 7000);
+        function updateGallerySlider() {
+            galleryTrack.style.transform = `translateX(-${currentGalleryIndex * 100}%)`;
         }
 
-        // --- Accordion Logic for Rituals ---
-        document.querySelectorAll('.accordion-item').forEach(item => {
-            const header = item.querySelector('.accordion-header');
-            const content = item.querySelector('.accordion-content');
-
-            header.addEventListener('click', () => {
-                // Close other open accordions
-                document.querySelectorAll('.accordion-content.active').forEach(openContent => {
-                    if (openContent !== content) {
-                        openContent.classList.remove('active');
-                    }
-                });
-                content.classList.toggle('active');
-            });
-        });
-
-        // --- Dynamic Particle Generation ---
-        const particlesContainer = document.querySelector('.particles');
-        const numParticles = 30; // Number of particles
-
-        for (let i = 0; i < numParticles; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            // Random size, position, and delay for variety
-            const size = Math.random() * 8 + 4; // 4px to 12px
-            const left = Math.random() * 100; // 0% to 100% width
-            const delay = Math.random() * 15; // 0s to 15s delay
-            const duration = 10 + Math.random() * 10; // 10s to 20s duration
-
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.left = `${left}%`;
-            particle.style.animationDelay = `${delay}s`;
-            particle.style.animationDuration = `${duration}s`;
-            
-            particlesContainer.appendChild(particle);
-        }
-
+        // Auto-slide functionality for gallery
+        setInterval(() => {
+            currentGalleryIndex = (currentGalleryIndex + 1) % totalGalleryImages;
+            updateGallerySlider();
+        }, 4000); // Change image every 4 seconds
     </script>
 </body>
 </html>
