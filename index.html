@@ -27,6 +27,27 @@
             overflow-x: hidden; 
             scroll-behavior: smooth;
         }
+		
+		.ganesh-logo {
+			display: block;
+			margin: 6px auto 16px;   /* minimal top spacing */
+			width: 30vw;             /* significantly larger on mobile */
+			max-width: 150px;        /* elegant cap on desktop */
+			min-width: 80px;         /* strong presence on small screens */
+			height: auto;
+		}
+
+
+		.ganesh-logo {
+			filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+		}
+
+
+		@keyframes fadeIn {
+			to { opacity: 1; }
+		}
+
+
 
         /* --- INTRO SECTION --- */
         #auto-intro {
@@ -131,6 +152,7 @@
 <audio id="bg-audio" loop><source src="./site.mp3" type="audio/mpeg"></audio>
 
 <section class="hero" id="hero-top">
+	<img src="ganeshji.png" alt="Ganeshji Logo" class="ganesh-logo">
     <p style="letter-spacing: 6px; font-size: 0.9rem;">THE PATEL WEDDING</p>
     <h1 class="main-title" style="font-size: clamp(3rem, 9vw, 5.8rem);">Deepesh & Kanchan</h1>
     <div class="divider"></div>
